@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    {% for tag_count in tag_count_list %}
+    <a href="{{ url_for('tag_bundles', tag=tag_count[0]) }}" target='_blank'>{{ tag_count[0] }}({{ tag_count[1] }})</a>
+    {% endfor %}
+{% endblock %}

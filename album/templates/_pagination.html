@@ -1,0 +1,15 @@
+<div class='text-center'>
+<ul class='pagination'>
+{% for page in pagination.iter_pages() %}
+  <li{% if pagination.current_page == page %} class='active'{% endif %}>
+  {% if pagination.current_page != page %}
+    <a href='{{ pagination.generate_url(page) }}'>{{ page }}</a>
+  {% else %}
+    <a>{{ page }}<span class="sr-only">(current)</span></a>
+  {% endif %}
+  </li>
+{% endfor %}
+</ul>
+</div>
+
+</div>

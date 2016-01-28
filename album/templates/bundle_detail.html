@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %} {{ bundle.name }} 美女派-美女图片网{% endblock %}
+
+{% block main %}
+<div class='text-center'>
+<p>
+{{ bundle.name }}
+
+标签：
+{% for tag in tags %}
+<span><a href='{{ url_for('tag_bundles', tag=tag) }}' target='_blank'>{{tag}}</a></span>
+{% endfor %}
+</p>
+
+<p>
+主题：
+{{ bundle.theme }}
+创建时间：
+{{ bundle.created_at }}
+</p>
+
+<p>
+评分：
+{{ pic.rating }}分 (评分是根据美女大作战中每个妹子的比拼结果得出的分数) <a href='{{ url_for('pk') }}' target='_blank'>去评分</a>
+</p>
+
+</div>
+
+<div class='text-center'>
+    <a href="/bundle/{{ next_page['bundle_id'] }}/{{ next_page['page'] }}" ><img src="/images/{{ pic.hash }}" class='img-responsive img-thumbnail' alt="{{ bundle.name }}[{{pic.page}}]"/></a>
+</div>
+
+<div class='text-center'>
+<ul class='pagination'>
+{% for page in pagination.iter_pages() %}
+  <li{% if pagination.current_page == page %} class='active'{% endif %}>
+  {% if pagination.current_page != page %}
+    <a href='{{ url_for('bundle_detail', bundle_id=bundle.id, page=page) }}'>{{ page }}</a>
+  {% else %}
+    <a>{{ page }}<span class="sr-only">(current)</span></a>
+  {% endif %}
+  </li>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}

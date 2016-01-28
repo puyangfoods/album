@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block main %}
+<div>
+    <a href="{{ url_for('similar', id=next_id) }} ">next</a>
+</div>
+<div style="width:50%;float:left;">
+    {{ bundle1.id }}
+    <br />
+    {{ bundle1.name }}({{ pics1|length }})
+    <br />
+    {% for pic in pics1 %}
+    {{ pic.id }}
+    <img src="/images/{{ pic.hash }}" class="img-responsive"/></a>
+    {% endfor %}
+</div>
+
+
+<div style="width:50%;float:left;">
+    {{ bundle2.id }}
+    <br />
+    {{ bundle2.name }}({{ pics2|length }})
+    <br />
+    {% for pic in pics2 %}
+    {{ pic.id }}
+    <img src="/images/{{ pic.hash }}" class="img-responsive"/></a>
+    {% endfor %}
+</div>
+{% endblock %}

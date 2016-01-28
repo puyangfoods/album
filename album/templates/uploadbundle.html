@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}Upload new File{% endblock %}
+
+{% block main %}
+<div class='text-center'>
+<h1>Upload new File</h1>
+<form action="" method=post enctype=multipart/form-data>
+    <span>图片</span><input type=file name=file[] multiple>
+    <span>名称</span><input type=text name=bundle_name>
+    <br />
+    <span>主题</span><input type=text name=theme>
+    <br />
+    <span>标签( )</span><input type=text name=tags>
+    <br />
+    <span>时间</span><input type=text name=created_at>
+    <br />
+    <span>code</span><input type=password name=password>
+    <br />
+    <input type=submit value=Upload>
+</form>
+</div>
+{% endblock %}

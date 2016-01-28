@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %} 美女排行|顶级美女 美女派-美女图片网{% endblock %}
+
+{% block main %}
+{% for pic in pics %}
+<div class='text-center'>
+    得分：{{ pic.rating }}
+    所属相册：<a href='{{ url_for('bundle_detail', bundle_id=pic.bundle_id) }}' target='_blank'>{{ bundle_dict[pic.bundle_id].name }}</a>
+    <br />
+    <a href="" ><img src="/images/{{ pic.hash }}" class='img-responsive img-thumbnail center-block' alt=""/></a>
+</div>
+{% endfor %}
+{% endblock %}

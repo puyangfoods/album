@@ -1,0 +1,10 @@
+#bundle_covers .cover {
+  max-width: 190px;
+  padding: 5px;
+}
+
+div.pk-block {
+  float:left;
+  width:45%; 
+  margin:2.3%;
+}

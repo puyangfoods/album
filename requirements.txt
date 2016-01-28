@@ -1,0 +1,6 @@
+Flask
+Flask-Script
+Jinja2
+MySQL-python
+SQLAlchemy
+Werkzeug

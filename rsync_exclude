@@ -1,0 +1,4 @@
+.git
+.gitignore
+*.pyc
+album_config.py

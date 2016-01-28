@@ -1,0 +1,12 @@
+<div class='row' id='bundle_covers' style="margin:auto">
+{% for bundle in bundles %}
+<div class='item-selector'>
+  <div class='cover'>
+      <p style='margin-bottom:2px;'>{{ bundle.rating }}分 <a href='{{ url_for('bundle_detail', bundle_id=bundle.id, page=1) }}' target='_blank'>{{ bundle.name }}</a></p>
+      <a href='{{ url_for('bundle_detail', bundle_id=bundle.id, page=1) }}' target='_blank'>
+          <img alt='{{ bundle.name }}' data-original='/images/cover/{{ bundle.cover }}' class='img-responsive lazy' style='width:180px; height:270px'/>
+      </a>
+  </div>
+</div>
+{% endfor %}
+</div>
