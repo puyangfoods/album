@@ -1,6 +1,6 @@
 Flask
 Flask-Script
 Jinja2
-MySQL-python
+pymysql
 SQLAlchemy
 Werkzeug

@@ -8,9 +8,6 @@ SQLALCHEMY_MYSQL_URI_PARAMS = {
     'dbname':   'mm',
 }
 
-STATIC_FOLDER = '/Users/wangtaizhou/workspace/album/album/static/'
-IMAGE_FOLDER = '/Users/wangtaizhou/workspace/album/album/static/images/mm/'
-
 HOSTNAME = '127.0.0.1:5000'
 
 FACEPP_API_KEY = '50a2b9f293d989c3c37b048ced43be06'

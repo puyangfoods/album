@@ -1,15 +1,7 @@
-from fabric.api import (
-    local,
-    run,
-    env,
-    cd,
-    sudo,
-)
+from fabric.api import *
 
-import os
-
-env.use_ssh_config = True
-env.hosts = ['iron']
+env.user = 'root'
+env.hosts = ['ali']
 
 
 def pack():
@@ -18,20 +10,19 @@ def pack():
 
 
 def deploy():
-    pwd = os.getcwd()
-    sudo("chown {} -R /var/www/album".format(env.user))
-    local('rsync -az --exclude-from=rsync_exclude --progress '
-          '{}/ iron:/var/www/album/'.format(pwd))
-    sudo("chown www-data -R /var/www/album")
-    local('rsync -az --exclude-from=rsync_exclude --progress '
-          '{}/ iron:/tmp/album/'.format(pwd))
-    with cd('/tmp/album'):
-        # now setup the package with our virtual environment's
-        # python interpreter
-        run('/home/gobattle/.virtualenvs/albumenv/bin/python '
-            'setup.py install')
-    # now that all is set up, delete the folder again
-    run('rm -rf /tmp/album')
-    # and finally touch the .wsgi file so that mod_wsgi triggers
-    # a reload of the application
-    run('touch /tmp/wsgi.sock')
+    dist = local('python setup.py --fullname', capture=True).strip()
+    put('dist/{}.tar.gz'.format(dist), '/tmp/huatuo.tar.gz')
+    run('mkdir -p /tmp/huatuo')
+    with cd('/tmp/huatuo'):
+        run('tar zxf /tmp/huatuo.tar.gz')
+        with cd('/tmp/huatuo/{}'.format(dist)):
+            run('/var/www/huatuo/huatuoenv/bin/python setup.py install')
+    run('rm -rf /tmp/huatuo /tmp/huatuo.tar.gz')
+    run('touch /var/www/huatuo.wsgi')
+
+
+def bootstrap():
+    run('mkdir -p /var/www/huatuo')
+    run('chown -R www-data:www-data /var/www/huatuo')
+    with cd('/var/www/huatuo'):
+        run('virtualenv huatuoenv')

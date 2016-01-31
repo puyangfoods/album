@@ -1,17 +1,17 @@
 from setuptools import setup
 
 setup(
-    name='album',
-    version='0.3',
+    name='huatuo',
+    version='0.1',
     long_description=__doc__,
-    packages=['album'],
+    packages=['huatuo'],
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'Flask',
+        'flask',
         'Flask-Script',
         'Jinja2',
-        'MySQL-python',
+        'pymysql',
         'SQLAlchemy',
         'Werkzeug',
     ]

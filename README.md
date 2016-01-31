@@ -1,1 +1,8 @@
-This is a photo album based on flask.
+THE ENV
+
+'''
+virtualenv huatuoenv
+
+. huatuoenv/bin/activate
+
+pip install flask

@@ -1,2 +1,1 @@
 recursive-include album/templates *
-recursive-include album/static *

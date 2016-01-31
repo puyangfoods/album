@@ -2,11 +2,10 @@
 <html lang="zh">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    <title>{% block title %}美女派-美女图片网{% endblock %}</title>
-    <meta name="keywords" content="美女,制服,丝袜,清纯,性感,图片">
-    <meta name="description" content="找到你喜欢的美女图片">
+    <title>{% block title %}this is the default title{% endblock %}</title>
+    <meta name="keywords" content="default keywords">
+    <meta name="description" content="default description">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="baidu-site-verification" content="6GrXsnxp36" />
     <!-- Css -->
     <link href="{{ url_for('static', filename='css/lib/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
@@ -20,7 +19,7 @@
   </head>
   <body>
       <script> 
-          var MNP = window.MNP || {};
+          var HT = window.HT || {};
           MNP.hostname = '{{ config['HOSTNAME'] }}';
       </script>
     <div class='container'>

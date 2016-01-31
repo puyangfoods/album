@@ -1,2 +1,4 @@
-similar
-similar2
+*.pyc
+dist/*
+huatuo.egg-info/*
+MANIFEST.in
