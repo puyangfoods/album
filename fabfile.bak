@@ -10,10 +10,10 @@ def deploy():
     pwd = os.getcwd()
     #sudo("chown {} -R /var/www/album".format(env.user))
     local('rsync -az --exclude-from=rsync_exclude --progress '
-          '{}/ ali:/var/www/huatuo/'.format(pwd))
+          '{}/ iron:/var/www/huatuo/'.format(pwd))
     #sudo("chown www-data -R /var/www/album")
     local('rsync -az --exclude-from=rsync_exclude --progress '
-          '{}/ ali:/tmp/huatuo/'.format(pwd))
+          '{}/ iron:/tmp/huatuo/'.format(pwd))
     with cd('/var/www/huatuo'):
         # now setup the package with our virtual environment's
         # python interpreter

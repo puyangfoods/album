@@ -18,3 +18,12 @@ class Bundle(Base):
     cover = Column(String(255))
     created_at = Column(DateTime)
     rating = Column(Integer, default=0)
+
+class ShopStatus(Base):
+    __tablename__ = 'shop_status'
+
+    id = Column(Integer, primary_key=True)
+    timestamp = Column(Integer)
+    shop_id = Column(SmallInteger)
+    shop_name = Column(String(255))
+    status = Column(SmallInteger)

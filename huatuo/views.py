@@ -22,13 +22,12 @@ from werkzeug import secure_filename
 from huatuo import app
 from huatuo.database import db_session
 from huatuo.tools import (
-    limit_pic_size,
-    pk_rating,
     Pagination
 )
 
 from huatuo.models import (
     Bundle,
+    ShopStatus
 )
 
 
@@ -54,6 +53,15 @@ def bundles():
             all()
     else:
         recent_bundles = []
+    return render_template('bundles.html',
+                           recent_bundles=recent_bundles,
+                           bundles=bundles,
+                           pagination=pagination)
+
+@app.route('/test')
+def testpage():
+    status_info = ShopStatus.query.all()
+    return 'asfd'
     return render_template('bundles.html',
                            recent_bundles=recent_bundles,
                            bundles=bundles,
