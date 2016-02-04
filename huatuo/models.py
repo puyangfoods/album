@@ -25,5 +25,6 @@ class ShopStatus(Base):
     id = Column(Integer, primary_key=True)
     timestamp = Column(Integer)
     shop_id = Column(SmallInteger)
+    platform_id = Column(SmallInteger)
     shop_name = Column(String(255))
     status = Column(SmallInteger)
