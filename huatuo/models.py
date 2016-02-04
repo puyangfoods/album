@@ -19,6 +19,15 @@ class Bundle(Base):
     created_at = Column(DateTime)
     rating = Column(Integer, default=0)
 
+class ShopInfo(Base):
+    __tablename__ = 'shop_info'
+
+    id = Column(Integer, primary_key=True)
+    shop_id = Column(SmallInteger)
+    platform_id = Column(SmallInteger)
+    shop_name = Column(String(255))
+    geohash = Column(String(31))
+
 class ShopStatus(Base):
     __tablename__ = 'shop_status'
 
